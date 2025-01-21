@@ -181,3 +181,12 @@ func TestInfo(t *testing.T) {
 		t.Fatalf("%s: %v\n", msg, err)
 	}
 }
+
+func TestPDFTwoPointZero(t *testing.T) {
+	msg := "TestInfo"
+	inFile := filepath.Join(inDir, "pdf2.0.pdf")
+
+	if _, err := api.InfoFile(inFile, nil, nil); err != nil {
+		t.Fatalf("%s: %v\n", msg, err)
+	}
+}
