@@ -63,8 +63,12 @@ func PDFVersion(versionStr string) (Version, error) {
 		return V17, nil
 	case "2.0":
 		return V20, nil
+	default:
+		return V20, nil
 	}
 
+	// skip unknown version
+	// on pdf header
 	return -1, errors.New(versionStr)
 }
 
