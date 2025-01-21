@@ -38,6 +38,7 @@ const (
 	V15
 	V16
 	V17
+	V20
 )
 
 // PDFVersion returns the PDFVersion for a version string.
@@ -60,6 +61,8 @@ func PDFVersion(versionStr string) (Version, error) {
 		return V16, nil
 	case "1.7":
 		return V17, nil
+	case "2.0":
+		return V20, nil
 	}
 
 	return -1, errors.New(versionStr)
@@ -67,5 +70,8 @@ func PDFVersion(versionStr string) (Version, error) {
 
 // String returns a string representation for a given PDFVersion.
 func (v Version) String() string {
+	if v == V20 {
+		return "2.0"
+	}
 	return "1." + fmt.Sprintf("%d", v)
 }
